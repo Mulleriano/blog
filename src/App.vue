@@ -6,23 +6,38 @@ export default {
     return {
       posts: [
         {
-          title: "Titulo",
-          datetime: Date.now(),
-          content: "Conteúdo do primeiro post",
-        },
-        {
-          title: "Titulo2",
-          datetime: Date.now(),
-          content: "Conteúdo do segundo post",
+          title: "",
+          datetime: "",
+          content: "",
         },
       ],
+      formData: {
+        title: "",
+        content: "",
+      },
     };
   },
   methods: {
     handleSubmit(event) {
-      event.preventDefault()
-    }
-  }
+      event.preventDefault();
+
+      const now = new Date();
+
+      const dataDaPostagem = `${now.getDate()}/${now.getMonth()}/${now.getFullYear()} - ${now.getHours()}:${now.getMinutes()}`;
+
+      this.posts.push({
+        title: this.formData.title,
+        content: this.formData.content,
+        datetime: dataDaPostagem,
+      });
+
+      this.formData = {};
+    },
+    handleInputChange(event) {
+      const { name, value } = event.target;
+      this.formData[name] = value;
+    },
+  },
 };
 </script>
 
@@ -38,8 +53,24 @@ export default {
   </div>
 
   <form action="" @submit="handleSubmit">
-    <input name="title" />
-    <textarea name="content" cols="30" rows="10"></textarea>
+    <input
+      :value="formData.title"
+      placeholder="Titulo"
+      name="title"
+      @keyup="handleInputChange"
+      required
+      oninvalid="this.setCustomValidity('Ei! Faltou o título')"
+    />
+    <textarea
+      :value="formData.content"
+      placeholder="Escreva seu post aqui"
+      name="content"
+      @keyup="handleInputChange"
+      cols="30"
+      rows="10"
+      required
+      oninvalid="this.setCustomValidity('Você precisa escrever seu post')"
+    ></textarea>
     <button type="submit">Criar</button>
   </form>
 
@@ -59,5 +90,4 @@ form {
 form > * {
   margin: 1rem 0;
 }
-
 </style>
