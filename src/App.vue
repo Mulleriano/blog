@@ -58,8 +58,6 @@ export default {
       placeholder="Titulo"
       name="title"
       @keyup="handleInputChange"
-      required
-      oninvalid="this.setCustomValidity('Ei! Faltou o título')"
     />
     <textarea
       :value="formData.content"
@@ -68,8 +66,6 @@ export default {
       @keyup="handleInputChange"
       cols="30"
       rows="10"
-      required
-      oninvalid="this.setCustomValidity('Você precisa escrever seu post')"
     ></textarea>
     <button type="submit">Criar</button>
   </form>
