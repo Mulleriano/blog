@@ -15,7 +15,21 @@ export default {
         title: "",
         content: "",
       },
+      search: "",
     };
+  },
+  computed: {
+    filteredPosts() {
+      if(!this.search) return this.posts;
+
+      const listaFinal = [];
+      for (const post of this.posts) {
+        if(post.title.includes(this.search)) {
+          listaFinal.push(post);
+        }
+      }
+      return listaFinal;
+    }
   },
   methods: {
     handleSubmit(event) {
@@ -44,8 +58,11 @@ export default {
 <template>
   <header></header>
 
+  <input class="search" type="text" v-model="search" placeholder="Procurar">
+  <button class="search">busca</button>
+
   <div id="list-posts">
-    <div class="post" v-for="post in posts" :key="post.title">
+    <div class="post" v-for="post in filteredPosts" :key="post.title">
       <h3>{{ post.title }}</h3>
       <h4>{{ post.datetime }}</h4>
       <p>{{ post.content }}</p>
@@ -82,6 +99,12 @@ export default {
 </template>
 
 <style scoped>
+.search {
+  position: fixed;
+  right: 50%;
+  z-index: 1;
+  padding: 10px;
+}
 h3, h4, p, input, textarea {
   font-family: sans-serif;
   margin: 0;
