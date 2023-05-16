@@ -4,17 +4,8 @@ import { RouterLink, RouterView } from "vue-router";
 export default {
   data() {
     return {
-      posts: [
-        {
-          title: "Titulo 1",
-          datetime: Date.now(),
-          content: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus natus, veritatis sed quaerat sint pariatur. Animi amet quidem ad. Maiores iste aperiam velit voluptatibus sint quibusdam quos id ut culpa!",
-        },
-      ],
-      formData: {
-        title: "",
-        content: "",
-      },
+      posts: [],
+      formData: {},
       search: "",
     };
   },
@@ -58,7 +49,7 @@ export default {
 <template>
   <header></header>
 
-  <input class="busca search" type="text" v-model="search" placeholder="Procurar">
+  <input class="search" type="text" v-model="search" placeholder="Procurar">
 
   <div id="list-posts">
     <div class="post" v-for="post in filteredPosts" :key="post.title">
@@ -91,9 +82,9 @@ export default {
 <style scoped>
 .search {
   position: fixed;
-  right: 50%;
+  right: 45%;
   z-index: 1;
-  padding: 10px;
+  padding: 1rem;
 }
 h3, h4, p, input, textarea {
   font-family: sans-serif;
@@ -107,7 +98,7 @@ h3, h4, p, input, textarea {
   right: 50%;
   transform: translateX(50%);
   width: 40vw;
-  padding-bottom: 2rem;
+  padding: 2rem 0;
 }
 
 h3 {
