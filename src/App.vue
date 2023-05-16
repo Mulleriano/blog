@@ -49,7 +49,7 @@ export default {
 <template>
   <header></header>
 
-  <input class="busca search" type="text" v-model="search" placeholder="Procurar">
+  <input class="search" type="text" v-model="search" placeholder="Procurar">
 
   <div id="list-posts">
     <div class="post" v-for="post in filteredPosts" :key="post.title">
