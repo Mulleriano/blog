@@ -82,9 +82,9 @@ export default {
 <style scoped>
 .search {
   position: fixed;
-  right: 50%;
+  right: 45%;
   z-index: 1;
-  padding: 10px;
+  padding: 1rem;
 }
 h3, h4, p, input, textarea {
   font-family: sans-serif;
@@ -98,7 +98,7 @@ h3, h4, p, input, textarea {
   right: 50%;
   transform: translateX(50%);
   width: 40vw;
-  padding-bottom: 2rem;
+  padding: 2rem 0;
 }
 
 h3 {
