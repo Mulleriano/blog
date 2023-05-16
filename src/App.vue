@@ -53,23 +53,14 @@ export default {
   </div>
 
   <form action="" @submit="handleSubmit">
-    <input
-      :value="formData.title"
-      placeholder="Titulo"
-      name="title"
-      @keyup="handleInputChange"
-      required
-      oninvalid="this.setCustomValidity('Ei! Faltou o título')"
-    />
+    <input placeholder="Titulo" v-model="formData.title" />
     <textarea
       :value="formData.content"
-      placeholder="Escreva seu post aqui"
       name="content"
       @keyup="handleInputChange"
+      placeholder="Escreva seu post aqui"
       cols="30"
       rows="10"
-      required
-      oninvalid="this.setCustomValidity('Você precisa escrever seu post')"
     ></textarea>
     <button class="submit" type="submit">Salvar</button>
   </form>
