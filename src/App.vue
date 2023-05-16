@@ -4,17 +4,8 @@ import { RouterLink, RouterView } from "vue-router";
 export default {
   data() {
     return {
-      posts: [
-        {
-          title: "Titulo 1",
-          datetime: Date.now(),
-          content: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus natus, veritatis sed quaerat sint pariatur. Animi amet quidem ad. Maiores iste aperiam velit voluptatibus sint quibusdam quos id ut culpa!",
-        },
-      ],
-      formData: {
-        title: "",
-        content: "",
-      },
+      posts: [],
+      formData: {},
       search: "",
     };
   },
