@@ -6,9 +6,9 @@ export default {
     return {
       posts: [
         {
-          title: "",
-          datetime: "",
-          content: "",
+          title: "Titulo 1",
+          datetime: Date.now(),
+          content: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus natus, veritatis sed quaerat sint pariatur. Animi amet quidem ad. Maiores iste aperiam velit voluptatibus sint quibusdam quos id ut culpa!",
         },
       ],
       formData: {
@@ -71,7 +71,7 @@ export default {
       required
       oninvalid="this.setCustomValidity('Você precisa escrever seu post')"
     ></textarea>
-    <button type="submit">Criar</button>
+    <button class="submit" type="submit">Salvar</button>
   </form>
 
   <main>
@@ -82,12 +82,68 @@ export default {
 </template>
 
 <style scoped>
+h3, h4, p, input, textarea {
+  font-family: sans-serif;
+  margin: 0;
+  color: #1a1a1a;
+}
+
+#list-posts {
+  position: absolute;
+  top: 0;
+  right: 50%;
+  transform: translateX(50%);
+  width: 40vw;
+  padding-bottom: 2rem;
+}
+
+h3 {
+  font-size: 2rem;
+  padding-top: 10px;
+  margin-top: 2rem;
+}
+
+h4 {
+  font-weight: 400;
+  color: #727272;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
 form {
   display: flex;
   flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 1rem;
+  width: 25vw;
 }
 
 form > * {
   margin: 1rem 0;
+  padding: 1rem;
+  font-size: 1rem;
+}
+
+textarea, p {
+  line-height: 1.5rem;
+}
+
+textarea {
+  resize: none;
+}
+
+.submit {
+  width: 100px;
+  margin: auto;
+  border: none;
+  background-color: #1a1a1a;
+  color: #fff;
+  cursor: pointer;
+  transition: all ease 0.3s;
+}
+
+.submit:hover {
+  opacity: 0.8;
 }
 </style>
