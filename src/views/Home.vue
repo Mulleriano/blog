@@ -7,14 +7,16 @@ export default {
   },
   props: {
     posts: Array,
+    search: String,
   },
   computed: {
     filteredPosts() {
-      if (!this.search) return this.posts;
+      console.log(this.$props.search);
+      if (!this.$props.search) return this.$props.posts;
 
       const listaFinal = [];
-      for (const post of this.posts) {
-        if (post.title.includes(this.search)) {
+      for (const post of this.$props.posts) {
+        if (post.title.includes(this.$props.search)) {
           listaFinal.push(post);
         }
       }
@@ -25,8 +27,6 @@ export default {
 </script>
 
 <template>
-  <input class="search" type="text" v-model="search" placeholder="Procurar" />
-
   <div id="list-posts">
     <div class="post" v-for="post in filteredPosts" :key="post.title">
       <h3>{{ post.title }}</h3>
@@ -37,12 +37,6 @@ export default {
 </template>
 
 <style scoped>
-.search {
-  position: fixed;
-  right: 1%;
-  z-index: 1;
-}
-
 #list-posts {
   position: absolute;
   top: 0;
