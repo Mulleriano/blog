@@ -38,17 +38,13 @@ export default {
 
 <style scoped>
 #list-posts {
-  position: absolute;
-  top: 0;
-  right: 50%;
-  transform: translateX(50%);
-  width: 40vw;
-  padding: 2rem 0;
+  margin: auto;
+  max-width: 1024px;
+  padding: 1rem 2rem;
 }
 
 h3 {
   font-size: 2rem;
-  padding-top: 10px;
   margin-top: 2rem;
 }
 
