@@ -38,7 +38,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 2rem;
+  padding: 1rem 2rem;
   z-index: 1;
   background: #24292f;
   color: #fff;
@@ -54,7 +54,16 @@ a:hover {
 }
 
 .search {
+  position: fixed;
+  right: 50%;
+  top: 0.6rem;
+  margin: 0;
+  border: none;
+  transform: translateX(50%);
   padding: 0.5rem;
+}
+.search:focus {
+  outline: none;
 }
 
 </style>
