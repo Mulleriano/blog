@@ -51,9 +51,11 @@ h3 {
 
 h4 {
   font-weight: 400;
+  font-size: 0.9rem;
   color: #727272;
   font-style: italic;
   margin-bottom: 1rem;
+  margin-top: 10px;
 }
 p {
   color: #24292f;
