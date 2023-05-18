@@ -22,7 +22,7 @@ export default {
     <RouterLink to="/">Home</RouterLink>
     <input class="search" v-model="search" placeholder="Procurar" />
     <nav>
-      <RouterLink to="/create">Novo Post</RouterLink>
+      <RouterLink title="Novo Post" class="fSizeLarge" to="/create">+</RouterLink>
     </nav>
   </header>
 
@@ -44,6 +44,14 @@ header {
   color: #fff;
 }
 
+a {
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+}
+a:hover {
+  opacity: 0.7;
+}
 
 .search {
   padding: 0.5rem;
