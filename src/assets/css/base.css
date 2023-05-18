@@ -6,6 +6,13 @@
   padding: 0;
   box-sizing: border-box;
   font-family: sans-serif;
-  color: #1a1a1a;
   line-height: 1.5rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+.fSizeLarge {
+  font-size: 1.5rem;
 }
