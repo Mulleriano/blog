@@ -44,6 +44,7 @@ export default {
 }
 
 h3 {
+  color: #24292f;
   font-size: 2rem;
   margin-top: 2rem;
 }
@@ -53,5 +54,8 @@ h4 {
   color: #727272;
   font-style: italic;
   margin-bottom: 1rem;
+}
+p {
+  color: #24292f;
 }
 </style>
