@@ -1,8 +1,10 @@
 <script>
+import { RouterLink } from "vue-router";
 export default {
   data() {
     return {
       search: "",
+      showMore: false,
     };
   },
   props: {
@@ -23,13 +25,30 @@ export default {
       return listaFinal;
     },
   },
+  methods: {
+    getPostId(title) {
+      for (const index in this.posts) {
+        const post = this.posts[index];
+
+        if (post.title === title) return index;
+      }
+    },
+  },
 };
 </script>
 
 <template>
   <div id="list-posts">
-    <div class="post" v-for="post in filteredPosts" :key="post.title">
-      <h3>{{ post.title }}</h3>
+    <div class="post" v-for="(post, index) in filteredPosts" :key="post.title">
+      <div class="actions">
+        <RouterLink :to="`/edit/${getPostId(post.title)}`">
+        <span class="material-symbols-rounded"> edit </span>
+        </RouterLink>
+        <a><span class="material-symbols-rounded delete"> delete </span></a>
+      </div>
+      <h3>
+        {{ post.title }}
+      </h3>
       <h4>{{ post.datetime }}</h4>
       <p>{{ post.content }}</p>
     </div>
@@ -46,6 +65,8 @@ export default {
 h3 {
   color: #24292f;
   font-size: 2rem;
+  line-height: 2.1rem;
+  margin-right: 3rem;
 }
 
 h4 {
@@ -54,16 +75,29 @@ h4 {
   color: #727272;
   font-style: italic;
   margin-bottom: 1rem;
-  margin-top: 10px;
 }
-p {
+p,
+a {
   color: #24292f;
 }
 .post {
   position: relative;
-  margin-top: 2rem;
+  margin-top: 1rem;
   padding: 1rem 2rem;
   border-radius: 5px;
   border: 1px solid #24292f;
+}
+
+.actions {
+  display: flex;
+  text-align: center;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  cursor: pointer;
+}
+
+.options > * {
+  margin-left: 5px;
 }
 </style>
