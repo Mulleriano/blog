@@ -34,24 +34,6 @@ export default {
 </template>
 
 <style scoped>
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  z-index: 1;
-  background: #24292f;
-  color: #fff;
-}
-
-a {
-  color: #fff;
-  font-weight: bold;
-  text-decoration: none;
-}
-a:hover {
-  opacity: 0.7;
-}
 
 .search {
   position: fixed;
@@ -61,6 +43,7 @@ a:hover {
   border: none;
   transform: translateX(50%);
   padding: 0.5rem;
+  border-radius: 5px;
 }
 .search:focus {
   outline: none;
