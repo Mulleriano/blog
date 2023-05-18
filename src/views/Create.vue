@@ -23,7 +23,7 @@ export default {
         ('0' + now.getHours()).slice(-2) + ':' + // Horas
         ('0' + now.getMinutes()).slice(-2); // Minutos
 
-      const dataDaPostagem = date + '-' + hour;
+      const dataDaPostagem = date + ' - ' + hour;
 
       const newPost = {
         title: this.formData.title,
