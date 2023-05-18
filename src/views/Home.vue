@@ -40,13 +40,12 @@ export default {
 #list-posts {
   margin: auto;
   max-width: 1024px;
-  padding: 1rem 2rem;
+  padding: 0 2rem 1rem 2rem;
 }
 
 h3 {
   color: #24292f;
   font-size: 2rem;
-  margin-top: 2rem;
 }
 
 h4 {
@@ -59,5 +58,12 @@ h4 {
 }
 p {
   color: #24292f;
+}
+.post {
+  position: relative;
+  margin-top: 2rem;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  border: 1px solid #24292f;
 }
 </style>
