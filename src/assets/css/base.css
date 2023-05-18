@@ -12,3 +12,7 @@
 a {
   text-decoration: none;
 }
+
+.fSizeLarge {
+  font-size: 1.5rem;
+}
