@@ -14,8 +14,16 @@ export default {
       }
 
       const now = new Date();
+      const date =
+        ('0'+ now.getDate()).slice(-2) + '/' + // Dia
+        ('0' + now.getMonth()).slice(-2) + '/' + // Mês
+        now.getFullYear(); // Ano
 
-      const dataDaPostagem = `${now.getDate()}/${now.getMonth()}/${now.getFullYear()} - ${now.getHours()}:${now.getMinutes()}`;
+      const hour =
+        ('0' + now.getHours()).slice(-2) + ':' + // Horas
+        ('0' + now.getMinutes()).slice(-2); // Minutos
+
+      const dataDaPostagem = date + '-' + hour;
 
       const newPost = {
         title: this.formData.title,
