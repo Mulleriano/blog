@@ -41,7 +41,7 @@ export default {
 
 <template>
   <div id="list-posts">
-    <div class="post" v-for="(post, index) in filteredPosts" :key="post.title">
+    <div class="post" v-for="post in filteredPosts" :key="post.title">
       <div class="actions">
         <RouterLink title="Editar" :to="`/edit/${getPostId(post.title)}`">
           <span class="material-symbols-rounded"> edit </span>
@@ -49,7 +49,7 @@ export default {
         <span
           title="Deletar"
           @click="deletePost"
-          :id="index"
+          :id="getPostId(post.title)"
           class="material-symbols-rounded delete"
         >
           delete
