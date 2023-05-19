@@ -6,12 +6,6 @@ export default {
   data() {
     return {
       posts: [
-        {
-          title: "post 1",
-          datetime: "24/05/1999 - 10:30",
-          content:
-            "  Lorem ipsum dolor sit amet consectetur adipisicing elit. Et est suscipit possimus ex rerum repudiandae sunt, quas recusandae inventore delectus optio quia, molestiae alias perspiciatis hic vitae tenetur laudantium velit.",
-        },
       ],
       search: "",
     };
@@ -22,6 +16,9 @@ export default {
     },
     updatePost(thePost, id) {
       this.posts[id] = thePost;
+    },
+    deletePost(id) {
+      this.posts.splice(id, 1);
     },
   },
 };
@@ -44,6 +41,7 @@ export default {
       :posts="posts"
       @create-post="addPost"
       @edit-post="updatePost"
+      @delete-post="deletePost"
     />
   </main>
 
