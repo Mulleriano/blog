@@ -55,9 +55,11 @@ export default {
           delete
         </span>
       </div>
-      <h3>
-        {{ post.title }}
-      </h3>
+      <RouterLink :to="`/detail/${getPostId(post.title)}`">
+        <h3>
+          {{ post.title }}
+        </h3>
+      </RouterLink>
       <h4>{{ post.datetime }}</h4>
       <p>{{ post.content }}</p>
     </div>
@@ -71,20 +73,6 @@ export default {
   padding: 0 2rem 1rem 2rem;
 }
 
-h3 {
-  color: #24292f;
-  font-size: 2rem;
-  line-height: 2.1rem;
-  margin-right: 3rem;
-}
-
-h4 {
-  font-weight: 400;
-  font-size: 0.9rem;
-  color: #727272;
-  font-style: italic;
-  margin-bottom: 1rem;
-}
 p,
 a {
   color: #24292f;
@@ -97,6 +85,10 @@ a {
   border: 1px solid #24292f;
 }
 
+.details {
+  cursor: pointer;
+}
+
 .actions {
   display: flex;
   text-align: center;
@@ -104,6 +96,7 @@ a {
   right: 1rem;
   top: 1rem;
   cursor: pointer;
+  z-index: 1;
 }
 
 .options > * {
