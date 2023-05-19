@@ -6,6 +6,18 @@ export default {
   data() {
     return {
       posts: [
+        {
+          title: "Post 1",
+          content:
+            "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae nostrum qui, repellendus, accusamus corporis quam itaque iure aspernatur impedit quidem asperiores officia modi temporibus hic molestias sequi quia fuga eligendi.",
+          datetime: "24/05/1999 - 10:30",
+        },
+        {
+          title: "Post 2",
+          content:
+            "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae nostrum qui, repellendus, accusamus corporis quam itaque iure aspernatur impedit quidem asperiores officia modi temporibus hic molestias sequi quia fuga eligendi.",
+          datetime: "24/05/1999 - 10:30",
+        },
       ],
       search: "",
     };
@@ -30,7 +42,7 @@ export default {
     <input class="search" v-model="search" placeholder="Procurar" />
     <nav>
       <RouterLink title="Novo Post" to="/create">
-        <span class="material-symbols-rounded fSizeLarge"> add </span>
+        <span class="material-symbols-rounded fSizeLarge center"> add </span>
       </RouterLink>
     </nav>
   </header>
