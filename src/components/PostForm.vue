@@ -2,6 +2,7 @@
 export default {
   props: {
     post: Object,
+    id: Number,
   },
   data() {
     return {
@@ -27,10 +28,8 @@ export default {
         ...this.formData,
       };
 
-      const id = this.$route.params.id;
-
       if (this.isEditable == true) {
-        this.$emit("edit-post", thePost, id);
+        this.$emit("edit-post", thePost, this.id);
       } else {
         this.$emit("create-post", thePost);
       }
