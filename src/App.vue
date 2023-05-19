@@ -17,11 +17,11 @@ export default {
     };
   },
   methods: {
-    addPost(newPost) {
-      this.posts.push(newPost);
+    addPost(thePost) {
+      this.posts.push(thePost);
     },
-    updatePost(updatedPost, id) {
-      this.post[id] = updatedPost;
+    updatePost(thePost, id) {
+      this.posts[id] = thePost;
     },
   },
 };
