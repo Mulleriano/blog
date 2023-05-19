@@ -13,7 +13,6 @@ export default {
   },
   computed: {
     filteredPosts() {
-      console.log(this.$props.search);
       if (!this.$props.search) return this.$props.posts;
 
       const listaFinal = [];
@@ -41,10 +40,12 @@ export default {
   <div id="list-posts">
     <div class="post" v-for="(post, index) in filteredPosts" :key="post.title">
       <div class="actions">
-        <RouterLink :to="`/edit/${getPostId(post.title)}`">
-        <span class="material-symbols-rounded"> edit </span>
+        <RouterLink title="Editar" :to="`/edit/${getPostId(post.title)}`">
+          <span class="material-symbols-rounded"> edit </span>
         </RouterLink>
-        <a><span class="material-symbols-rounded delete"> delete </span></a>
+        <a title="Deletar"
+          ><span class="material-symbols-rounded delete"> delete </span></a
+        >
       </div>
       <h3>
         {{ post.title }}
