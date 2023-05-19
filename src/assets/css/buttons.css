@@ -1,15 +1,16 @@
-button {
-    width: 100px;
-    padding: 1rem;
-    margin: auto;
-    border: none;
-    background-color: #24292f;
-    color: #fff;
-    cursor: pointer;
-    transition: all ease 0.3s;
-    border-radius: 5px;
-  }
-  
-  button:hover {
-    opacity: 0.8;
-  }
+button,
+.action {
+  width: 100px;
+  padding: 1rem;
+  margin: auto;
+  border: none;
+  background-color: #24292f;
+  color: #fff;
+  cursor: pointer;
+  transition: all ease 0.3s;
+  border-radius: 5px;
+}
+
+button:hover {
+  opacity: 0.8;
+}
