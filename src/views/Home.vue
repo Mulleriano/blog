@@ -32,6 +32,9 @@ export default {
         if (post.title === title) return index;
       }
     },
+    deletePost(event) {
+      this.$emit("delete-post", event.target.id);
+    },
   },
 };
 </script>
@@ -43,9 +46,14 @@ export default {
         <RouterLink title="Editar" :to="`/edit/${getPostId(post.title)}`">
           <span class="material-symbols-rounded"> edit </span>
         </RouterLink>
-        <a title="Deletar"
-          ><span class="material-symbols-rounded delete"> delete </span></a
+        <span
+          title="Deletar"
+          @click="deletePost"
+          :id="index"
+          class="material-symbols-rounded delete"
         >
+          delete
+        </span>
       </div>
       <h3>
         {{ post.title }}
