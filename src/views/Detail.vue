@@ -8,12 +8,16 @@ export default {
     return {
       id: id,
       post: this.posts[id],
+      showModal: false,
     };
   },
   props: {
     posts: Array,
   },
   methods: {
+    toggle() {
+      this.showModal = !this.showModal;
+    },
     deletePost() {
       this.$emit("delete-post", this.id);
       this.$router.push("/");
@@ -31,7 +35,17 @@ export default {
     <p>{{ post.content }}</p>
     <div class="actions">
       <RouterLink class="action" :to="`/edit/${id}`">Editar</RouterLink>
-      <a class="action deletar" @click="deletePost">Deletar</a>
+      <a class="action redButton" @click="toggle">Deletar</a>
+    </div>
+  </div>
+
+  <div class="modal center" v-show="showModal">
+    <div class="modal-content">
+      <h3>Deletar</h3>
+      <p>Tem certeza que quer deletar?</p>
+
+      <button @click="toggle" class="redButton">Cancelar</button>
+      <button @click="deletePost">Confirmar</button>
     </div>
   </div>
 </template>
@@ -46,8 +60,8 @@ export default {
 .actions {
   margin-top: 2rem;
 }
-.deletar {
-  margin-left: 2rem;
-  background-color: #e92024;
+
+.action {
+  margin-right: 2rem;
 }
 </style>
