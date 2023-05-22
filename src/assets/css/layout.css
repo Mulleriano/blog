@@ -74,3 +74,7 @@ p {
   align-items: center;
   justify-content: center;
 }
+
+.redButton {
+  background-color: #e92024;
+}
