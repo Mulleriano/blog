@@ -13,6 +13,12 @@ export default {
   props: {
     posts: Array,
   },
+  methods: {
+    deletePost() {
+      this.$emit("delete-post", this.id);
+      this.$router.push("/");
+    },
+  },
 };
 </script>
 
@@ -24,8 +30,8 @@ export default {
     <h4>{{ post.datetime }}</h4>
     <p>{{ post.content }}</p>
     <div class="actions">
-      <RouterLink class="action" to="">Editar</RouterLink>
-      <RouterLink class="action deletar" to="">Deletar</RouterLink>
+      <RouterLink class="action" :to="`/edit/${id}`">Editar</RouterLink>
+      <a class="action deletar" @click="deletePost">Deletar</a>
     </div>
   </div>
 </template>
