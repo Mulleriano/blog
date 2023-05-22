@@ -74,4 +74,11 @@ export default {
 .search:focus {
   outline: none;
 }
+
+@media screen and (max-width: 600px){
+  .search {
+    right: 47%;
+    width: 150px;
+  }
+}
 </style>
