@@ -17,5 +17,5 @@ form {
   
   textarea {
     resize: vertical;
-    height: 500px
+    height: 50vh;
   }
