@@ -1,6 +1,6 @@
 button,
 .action {
-  width: 100px;
+  width: auto;
   padding: 1rem;
   margin: auto;
   border: none;
@@ -9,6 +9,8 @@ button,
   cursor: pointer;
   transition: all ease 0.3s;
   border-radius: 5px;
+  font-weight: 600;
+  text-align: center;
 }
 
 button:hover {
