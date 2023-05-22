@@ -4,7 +4,8 @@ export default {
   data() {
     return {
       search: "",
-      showMore: false,
+      showModal: false,
+      postId: null,
     };
   },
   props: {
@@ -32,8 +33,14 @@ export default {
         if (post.title === title) return index;
       }
     },
-    deletePost(event) {
-      this.$emit("delete-post", event.target.id);
+    toggle(id) {
+      this.showModal = !this.showModal;
+      /* Alimenta a variável de id */
+      this.postId = id;
+    },
+    deletePost() {
+      this.$emit("delete-post", this.postId);
+      this.showModal = !this.showModal;
     },
   },
 };
@@ -48,8 +55,7 @@ export default {
         </RouterLink>
         <span
           title="Deletar"
-          @click="deletePost"
-          :id="getPostId(post.title)"
+          @click="toggle(getPostId(post.title))"
           class="material-symbols-rounded delete"
         >
           delete
@@ -62,6 +68,16 @@ export default {
       </RouterLink>
       <h4>{{ post.datetime }}</h4>
       <p>{{ post.content }}</p>
+    </div>
+  </div>
+
+  <div class="modal center" v-show="showModal">
+    <div class="modal-content">
+      <h3>Deletar</h3>
+      <p>Tem certeza que quer deletar?</p>
+
+      <button @click="toggle" class="redButton">Cancelar</button>
+      <button @click="deletePost">Confirmar</button>
     </div>
   </div>
 </template>
