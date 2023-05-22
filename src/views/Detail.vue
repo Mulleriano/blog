@@ -32,11 +32,10 @@ export default {
       {{ post.title }}
     </h3>
     <h4>{{ post.datetime }}</h4>
-    <p>{{ post.content }}</p>
-    <div class="actions">
-      <RouterLink class="action" :to="`/edit/${id}`">Editar</RouterLink>
-      <a class="action redButton" @click="toggle">Deletar</a>
-    </div>
+    <p class="content">{{ post.content }}</p>
+    
+    <RouterLink class="action" :to="`/edit/${id}`">Editar</RouterLink>
+    <a class="action redButton" @click="toggle">Deletar</a>
   </div>
 
   <div class="modal center" v-show="showModal">
@@ -57,11 +56,12 @@ export default {
   padding: 2rem 4rem;
 }
 
-.actions {
-  margin-top: 2rem;
+.content {
+  margin-bottom: 2rem;
 }
 
 .action {
   margin-right: 2rem;
+  margin-top: 4rem;
 }
 </style>
