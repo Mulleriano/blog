@@ -49,18 +49,18 @@ export default {
 <template>
   <div id="list-posts">
     <div class="post" v-for="post in filteredPosts" :key="post.title">
-      <div class="actions">
-        <RouterLink title="Editar" :to="`/edit/${getPostId(post.title)}`">
-          <span class="material-symbols-rounded"> edit </span>
-        </RouterLink>
-        <span
-          title="Deletar"
-          @click="toggle(getPostId(post.title))"
-          class="material-symbols-rounded delete"
-        >
-          delete
-        </span>
-      </div>
+      <!--       <div class="actions"> -->
+      <RouterLink title="Editar" :to="`/edit/${getPostId(post.title)}`">
+        <span class="material-symbols-rounded details"> edit </span>
+      </RouterLink>
+      <span
+        title="Deletar"
+        @click="toggle(getPostId(post.title))"
+        class="material-symbols-rounded delete deletar"
+      >
+        delete
+      </span>
+      <!--       </div> -->
       <RouterLink :to="`/detail/${getPostId(post.title)}`">
         <h3>
           {{ post.title }}
@@ -101,11 +101,19 @@ a {
   border: 1px solid #24292f;
 }
 
-.details {
+.details,
+.deletar {
+  z-index: 1;
   cursor: pointer;
+  position: absolute;
+  right: 1rem;
 }
 
-.actions {
+.details {
+  right: 3rem;
+}
+
+/* .actions {
   display: flex;
   text-align: center;
   position: absolute;
@@ -113,7 +121,7 @@ a {
   top: 1rem;
   cursor: pointer;
   z-index: 1;
-}
+} */
 
 .options > * {
   margin-left: 5px;
