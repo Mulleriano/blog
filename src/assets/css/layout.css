@@ -5,7 +5,13 @@
   font-family: sans-serif;
   line-height: 1.5rem;
 }
-h1, h2, h3, h4, p, input, textarea {
+h1,
+h2,
+h3,
+h4,
+p,
+input,
+textarea {
   color: #24292f;
 }
 
@@ -24,9 +30,6 @@ nav {
 }
 
 a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   color: #fff;
   font-weight: bold;
   text-decoration: none;
@@ -35,6 +38,26 @@ a {
 a:hover {
   opacity: 0.7;
 }
+
+h3 {
+  color: #24292f;
+  font-size: 2rem;
+  line-height: 2.1rem;
+  margin-right: 3rem;
+}
+
+h4 {
+  font-weight: 400;
+  font-size: 0.9rem;
+  color: #727272;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+p {
+  font-weight: 400;
+}
+
 /* Classes globais */
 
 .fSizeLarge {
@@ -44,4 +67,10 @@ a:hover {
 
 .delete {
   color: #fc0407;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
