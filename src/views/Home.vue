@@ -33,7 +33,7 @@ export default {
         if (post.title === title) return index;
       }
     },
-    toggle(id) {
+    toggleModal(id) {
       this.showModal = !this.showModal;
       /* Alimenta a variável de id */
       this.postId = id;
@@ -49,18 +49,18 @@ export default {
 <template>
   <div id="list-posts">
     <div class="post" v-for="post in filteredPosts" :key="post.title">
-      <div class="actions">
-        <RouterLink title="Editar" :to="`/edit/${getPostId(post.title)}`">
-          <span class="material-symbols-rounded"> edit </span>
-        </RouterLink>
-        <span
-          title="Deletar"
-          @click="toggle(getPostId(post.title))"
-          class="material-symbols-rounded delete"
-        >
-          delete
-        </span>
-      </div>
+      <!--       <div class="actions"> -->
+      <RouterLink title="Editar" :to="`/edit/${getPostId(post.title)}`">
+        <span class="material-symbols-rounded details"> edit </span>
+      </RouterLink>
+      <span
+        title="Deletar"
+        @click="toggleModal(getPostId(post.title))"
+        class="material-symbols-rounded delete deletar"
+      >
+        delete
+      </span>
+      <!--       </div> -->
       <RouterLink :to="`/detail/${getPostId(post.title)}`">
         <h3>
           {{ post.title }}
@@ -76,7 +76,7 @@ export default {
       <h3>Deletar</h3>
       <p>Tem certeza que quer deletar?</p>
 
-      <button @click="toggle" class="redButton">Cancelar</button>
+      <button @click="toggleModal" class="redButton">Cancelar</button>
       <button @click="deletePost">Confirmar</button>
     </div>
   </div>
@@ -101,11 +101,19 @@ a {
   border: 1px solid #24292f;
 }
 
-.details {
+.details,
+.deletar {
+  z-index: 1;
   cursor: pointer;
+  position: absolute;
+  right: 1rem;
 }
 
-.actions {
+.details {
+  right: 3rem;
+}
+
+/* .actions {
   display: flex;
   text-align: center;
   position: absolute;
@@ -113,7 +121,7 @@ a {
   top: 1rem;
   cursor: pointer;
   z-index: 1;
-}
+} */
 
 .options > * {
   margin-left: 5px;
