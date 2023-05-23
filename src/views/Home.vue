@@ -33,7 +33,7 @@ export default {
         if (post.title === title) return index;
       }
     },
-    toggle(id) {
+    toggleModal(id) {
       this.showModal = !this.showModal;
       /* Alimenta a variável de id */
       this.postId = id;
@@ -55,7 +55,7 @@ export default {
       </RouterLink>
       <span
         title="Deletar"
-        @click="toggle(getPostId(post.title))"
+        @click="toggleModal(getPostId(post.title))"
         class="material-symbols-rounded delete deletar"
       >
         delete
@@ -76,7 +76,7 @@ export default {
       <h3>Deletar</h3>
       <p>Tem certeza que quer deletar?</p>
 
-      <button @click="toggle" class="redButton">Cancelar</button>
+      <button @click="toggleModal" class="redButton">Cancelar</button>
       <button @click="deletePost">Confirmar</button>
     </div>
   </div>
