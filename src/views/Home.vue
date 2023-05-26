@@ -6,6 +6,7 @@ export default {
       search: "",
       showModal: false,
       postId: null,
+      postTitle: null,
     };
   },
   props: {
@@ -33,10 +34,11 @@ export default {
         if (post.title === title) return index;
       }
     },
-    toggleModal(id) {
+    toggleModal(id, title) {
       this.showModal = !this.showModal;
       /* Alimenta a variável de id */
       this.postId = id;
+      this.postTitle = title;
     },
     deletePost() {
       this.$emit("delete-post", this.postId);
@@ -55,7 +57,7 @@ export default {
       </RouterLink>
       <span
         title="Deletar"
-        @click="toggleModal(getPostId(post.title))"
+        @click="toggleModal(getPostId(post.title), post.title)"
         class="material-symbols-rounded delete deletar"
       >
         delete
@@ -74,7 +76,7 @@ export default {
   <div class="modal center" v-show="showModal">
     <div class="modal-content">
       <h3>Deletar</h3>
-      <p>Tem certeza que quer deletar?</p>
+      <p>Tem certeza que quer deletar o post "{{ postTitle }}"?</p>
 
       <button @click="toggleModal" class="redButton">Cancelar</button>
       <button @click="deletePost">Confirmar</button>
