@@ -41,7 +41,7 @@ export default {
   <div class="modal center" v-show="showModal">
     <div class="modal-content">
       <h3>Deletar</h3>
-      <p>Tem certeza que quer deletar?</p>
+      <p>Tem certeza que quer deletar o post "{{ post.title }}"?</p>
 
       <button @click="toggle" class="redButton">Cancelar</button>
       <button @click="deletePost">Confirmar</button>
